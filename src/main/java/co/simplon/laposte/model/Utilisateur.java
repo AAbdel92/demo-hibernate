@@ -57,14 +57,5 @@ public class Utilisateur {
 		this.pseudo = identifiant;
 		this.motDePasse = motDePasse;
 		this.email = email;		
-	}	
-
-//	public Utilisateur(String identifiant, String motDePasse, String email, String emailRh, RoleEnum role) {
-//		super();
-//		this.identifiant = identifiant;
-//		this.motDePasse = motDePasse;
-//		this.email = email;
-//		this.emailRh = emailRh;
-//		this.role = role;
-//	}	
+	}		
 }

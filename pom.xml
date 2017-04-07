@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>co.simplon.laposte</groupId>
-	<artifactId>demo-projet-simplon</artifactId>
+	<artifactId>demo-hibernate</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>demo-projet-simplon</name>
+	<name>demo-hibernate</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -59,6 +59,12 @@
 			<artifactId>materialize</artifactId>
 			<version>0.98.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+
 
 
 
