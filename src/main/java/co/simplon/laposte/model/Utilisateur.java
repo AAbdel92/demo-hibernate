@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -21,8 +22,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Getter @Setter
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "pseudo")
 public class Utilisateur {
@@ -39,6 +39,10 @@ public class Utilisateur {
 	
 	@UpdateTimestamp
 	private Timestamp derniereMaj;
+	
+	@ManyToOne
+	@JoinColumn(name = "promo_id")
+	private Promo promo;
 	
 	//@JsonManagedReference
 	

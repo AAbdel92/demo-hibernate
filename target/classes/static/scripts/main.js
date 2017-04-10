@@ -1,6 +1,15 @@
 $(document).ready(function() {
 
 	listerRoles(),
+	listerPromos(),
+	
+	$('#deletePromo').click(function() {
+		deletePromo();
+	}),
+	
+	$('#creerPromo').click( function() {
+		creerPromo();
+	}),
 
 	$('#saveUser').click( function() {					
 		creerUtilisateur();
@@ -25,10 +34,13 @@ function creerUtilisateur() {
 	var Utilisateur = {};
 	var Roles = [];
 	var Role = {};
+	var Promo = {};
+	Promo["id"] = $('#idPromo').val();
 	Role["id"] = $('#idRole').val();	
 	Utilisateur["pseudo"] = $('#pseudo').val();
 	Utilisateur["motDePasse"] = $('#pass').val();
 	Utilisateur["email"] = $('#email').val();
+	Utilisateur["promo"] = Promo;
 	Utilisateur["roles"] = Roles;
 	Utilisateur["roles"][0] = Role;
 	
@@ -89,7 +101,7 @@ function creerRole() {
 	});	
 }
 function listerRoles() {
-	var resultat;
+	
 	$.getJSON("api/role/listeRole", function(data) {	
 		var resultat;	
 		$.each(data, function(cle, valeur) {
@@ -171,6 +183,75 @@ function chercherUtilisateur() {
 		type : "GET",
 		contentType : "application/json",
 		url : "/api/utilisateur/chercherUtilisateur/" + roleId,		
+		dataType : 'json',
+		success : function(data) {			
+			var json = "<h4>Ajax Response</h4><pre>"
+					+ JSON.stringify(data, null, 4) + "</pre>";
+			$('#reponse').html(json);
+
+			console.log("SUCCESS : ", data);
+		},
+		error : function(e) {
+
+			var json = "<h4>Ajax Response</h4><pre>" + e.responseText
+					+ "</pre>";
+			$('#reponse').html(json);
+
+			console.log("ERROR : ", e);
+			}
+	});
+}
+
+function listerPromos() {	
+	
+	$.getJSON("api/promo/listePromos", function(data) {	
+		var resultat;	
+		$.each(data, function(cle, valeur) {
+			var option = "<option value=\"" + cle + "\">" + valeur;
+			resultat += option;
+		});
+		
+		$('#idPromo').html(resultat);		
+	}); 
+}
+
+function creerPromo() {
+	var Promo = {};
+	Promo["nom"] = $('#nomPromo').val();
+	
+	$.ajax({
+		type : "POST",
+		contentType : "application/json",
+		url : "/api/promo/creerPromo/",
+		data : JSON.stringify(Promo),
+		dataType : 'json',
+		success : function(data) {			
+			var json = "<h4>Ajax Response</h4><pre>"
+					+ JSON.stringify(data, null, 4) + "</pre>";
+			$('#reponse').html(json);
+
+			console.log("SUCCESS : ", data);
+		},
+		error : function(e) {
+
+			var json = "<h4>Ajax Response</h4><pre>" + e.responseText
+					+ "</pre>";
+			$('#reponse').html(json);
+
+			console.log("ERROR : ", e);
+			}
+	});
+}
+
+function deletePromo() {
+	var Promo = {};
+	Promo["nom"] = $('#nomPromoDelete').val();
+	
+	$.ajax({
+		type : "DELETE",
+		contentType : "application/json",
+		url : "/api/promo/supprimerPromo/",
+		data : JSON.stringify(Promo),
 		dataType : 'json',
 		success : function(data) {			
 			var json = "<h4>Ajax Response</h4><pre>"
