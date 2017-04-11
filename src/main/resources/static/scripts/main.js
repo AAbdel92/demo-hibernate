@@ -48,13 +48,12 @@ function creerUtilisateur() {
 		type : "POST",
 		contentType : "application/json",
 		url : "api/utilisateur/creerUtilisateur",
-		data : JSON.stringify(Utilisateur),
+		data : Utilisateur,
 		dataType : 'json',
 		success : function(data) {
 			var date = new Date(data["derniereMaj"]);
 			data["derniereMaj"] = date;
-			var json = "<h4>Ajax Response</h4><pre>"
-					+ JSON.stringify(data, null, 4) + "</pre>";
+			var json = "<h4>Ajax Response</h4><pre>" + data + "</pre>";
 			$('#reponse').html(json);
 
 			console.log("SUCCESS : ", data);
@@ -79,13 +78,13 @@ function creerRole() {
 		type : "POST",
 		contentType : "application/json",
 		url : "/api/role/creerRole",
-		data : JSON.stringify(Role),
+		data : Role,
 		dataType : 'json',
 		success : function(data) {
 			var date = new Date(data["derniereMaj"]);
 			data["derniereMaj"] = date;
 			var json = "<h4>Ajax Response</h4><pre>"
-					+ JSON.stringify(data, null, 4) + "</pre>";
+					+ data + "</pre>";
 			$('#reponse').html(json);
 
 			console.log("SUCCESS : ", data);
@@ -122,11 +121,11 @@ function deleteUtilisateur() {
 		type : "DELETE",
 		contentType : "application/json",
 		url : "/api/utilisateur/supprimerUtilisateur",
-		data : JSON.stringify(Utilisateur),
+		data : Utilisateur,
 		dataType : 'json',
 		success : function(data) {			
 			var json = "<h4>Ajax Response</h4><pre>"
-					+ JSON.stringify(data, null, 4) + "</pre>";
+					+ data + "</pre>";
 			$('#reponse').html(json);
 
 			console.log("SUCCESS : ", data);
@@ -155,11 +154,11 @@ function ajouterRole() {
 		type : "POST",
 		contentType : "application/json",
 		url : "/api/utilisateur/ajoutRole",
-		data : JSON.stringify(Utilisateur),
+		data : Utilisateur,
 		dataType : 'json',
 		success : function(data) {			
 			var json = "<h4>Ajax Response</h4><pre>"
-					+ JSON.stringify(data, null, 4) + "</pre>";
+					+ data + "</pre>";
 			$('#reponse').html(json);
 
 			console.log("SUCCESS : ", data);
@@ -186,7 +185,7 @@ function chercherUtilisateur() {
 		dataType : 'json',
 		success : function(data) {			
 			var json = "<h4>Ajax Response</h4><pre>"
-					+ JSON.stringify(data, null, 4) + "</pre>";
+					+ data + "</pre>";
 			$('#reponse').html(json);
 
 			console.log("SUCCESS : ", data);
@@ -223,11 +222,11 @@ function creerPromo() {
 		type : "POST",
 		contentType : "application/json",
 		url : "/api/promo/creerPromo/",
-		data : JSON.stringify(Promo),
+		data : Promo,
 		dataType : 'json',
 		success : function(data) {			
 			var json = "<h4>Ajax Response</h4><pre>"
-					+ JSON.stringify(data, null, 4) + "</pre>";
+					+ data + "</pre>";
 			$('#reponse').html(json);
 
 			console.log("SUCCESS : ", data);
@@ -251,11 +250,11 @@ function deletePromo() {
 		type : "DELETE",
 		contentType : "application/json",
 		url : "/api/promo/supprimerPromo/",
-		data : JSON.stringify(Promo),
+		data : Promo,
 		dataType : 'json',
 		success : function(data) {			
 			var json = "<h4>Ajax Response</h4><pre>"
-					+ JSON.stringify(data, null, 4) + "</pre>";
+					+ data + "</pre>";
 			$('#reponse').html(json);
 
 			console.log("SUCCESS : ", data);

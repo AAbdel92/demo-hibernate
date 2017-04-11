@@ -18,4 +18,6 @@ public interface UtilisateurDAO extends CrudRepository<Utilisateur, Long>{
 	public List<String> findPseudo();
 	public Utilisateur roles(Utilisateur utilisateur);
 	public Iterable<Utilisateur> findByRolesId(long id);
+	
+	public Utilisateur findByPseudoAndMotDePasse(String pseudo, String motDePasse);
 }
