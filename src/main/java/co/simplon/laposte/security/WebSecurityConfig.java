@@ -1,21 +1,41 @@
-//package co.simplon.laposte.security;
-//
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-//
-//import co.simplon.laposte.dao.UtilisateurDAO;
-//import co.simplon.laposte.model.Utilisateur;
-//
-//@Configuration
-//@EnableWebSecurity
-//public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
-//	
-//	@Autowired
-//	private UtilisateurDAO dao;
-//	
+package co.simplon.laposte.security;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+		
+	
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		String loginUrl = "/login.html";
+		String indexUrl = "/index.html";
+		http.formLogin().loginPage(loginUrl).usernameParameter("username")
+												.passwordParameter("password")
+						.defaultSuccessUrl(indexUrl)
+						.failureUrl(loginUrl)
+						.and()
+						.logout().logoutUrl("/logout")
+						.deleteCookies("JSESSIONID").permitAll()
+						.and().csrf().disable()
+						.authorizeRequests().antMatchers(loginUrl).permitAll()
+											.antMatchers(indexUrl).denyAll()
+											.antMatchers("/admin/**").hasRole("ADMIN")
+						.anyRequest().authenticated();
+	}	
+	
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers("/styles/**")
+						.antMatchers("/scripts/**")
+						.antMatchers("/webjars/**");
+	}
+	
 //	@Override
 //	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //		
@@ -32,5 +52,5 @@
 //		auth.inMemoryAuthentication()
 //				.withUser("user").password("password").roles("USER");
 //	}
-//	
-//}
+	
+}

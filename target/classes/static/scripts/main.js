@@ -1,7 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function() {	
 
 	listerRoles(),
 	listerPromos(),
+	$('select').material_select(),
 	
 	$('#deletePromo').click(function() {
 		deletePromo();
@@ -111,6 +112,7 @@ function listerRoles() {
 		$('#idRole').html(resultat);
 		$('#idRoleAjout').html(resultat);
 		$('#idRoleSearch').html(resultat);
+		
 	}); 
 }
 	
