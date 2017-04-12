@@ -1,8 +1,7 @@
 $(document).ready(function() {	
 
 	listerRoles(),
-	listerPromos(),
-	$('select').material_select(),
+	listerPromos(),	
 	
 	$('#deletePromo').click(function() {
 		deletePromo();
@@ -187,7 +186,7 @@ function chercherUtilisateur() {
 		dataType : 'json',
 		success : function(data) {			
 			var json = "<h4>Ajax Response</h4><pre>"
-					+ data + "</pre>";
+					+ JSON.stringify(data) + "</pre>";
 			$('#reponse').html(json);
 
 			console.log("SUCCESS : ", data);

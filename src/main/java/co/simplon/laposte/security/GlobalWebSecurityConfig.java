@@ -45,7 +45,7 @@ public class GlobalWebSecurityConfig extends GlobalAuthenticationConfigurerAdapt
 					return new User(utilisateur.getPseudo(),
 									utilisateur.getMotDePasse(),
 									true, true, true, true, 
-									AuthorityUtils.createAuthorityList(Arrays.toString(listeRole).split("")));
+									AuthorityUtils.createAuthorityList("USER"));
 				} else {
 					throw new UsernameNotFoundException(username + " non trouvé.");
 				}
