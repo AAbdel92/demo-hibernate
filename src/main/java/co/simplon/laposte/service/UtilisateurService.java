@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import co.simplon.laposte.dao.UtilisateurDAO;
-import co.simplon.laposte.model.Role;
 import co.simplon.laposte.model.Utilisateur;
 
 @Service
@@ -69,6 +68,11 @@ public class UtilisateurService {
 			map.put(utilisateur.getId(), utilisateur.getPseudo());
 		}
 		return map;
+	}
+	
+	public Utilisateur seConnecter(String pseudo, String motDePasse) {
+		Utilisateur resultat = dao.findByPseudoAndMotDePasse(pseudo, motDePasse);
+		return resultat;
 	}
 	
 	

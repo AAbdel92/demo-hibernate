@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import co.simplon.laposte.dao.RoleDAO;
 import co.simplon.laposte.model.Role;
-import co.simplon.laposte.model.Utilisateur;
 
 @Service
 @Transactional
