@@ -15,18 +15,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		String loginUrl = "/login.html";
 		String indexUrl = "/index.html";
-		http.formLogin().loginPage(loginUrl).usernameParameter("username")
-												.passwordParameter("password")
-						.defaultSuccessUrl(indexUrl)
-						.failureUrl(loginUrl)
-						.and()
-						.logout().logoutUrl("/logout").logoutSuccessUrl(loginUrl)
-						.deleteCookies("JSESSIONID").invalidateHttpSession(true)
-						.and().csrf().disable()
-						.authorizeRequests().antMatchers(loginUrl).permitAll()
-											.antMatchers(indexUrl).denyAll()
-											.antMatchers("/admin/**").hasRole("ADMIN")
-						.anyRequest().authenticated();
+		http.authorizeRequests()
+				.antMatchers(loginUrl).permitAll()
+				.antMatchers("/**").authenticated()
+			.and()
+			.csrf()
+				.disable()
+				.authorizeRequests()
+			.and()
+			.formLogin()
+				.loginPage(loginUrl)
+				.usernameParameter("username")
+				.passwordParameter("password")
+				.defaultSuccessUrl(indexUrl)
+				.failureUrl(loginUrl)
+			.and()
+			.logout()
+//				.clearAuthentication(true)
+				.logoutUrl("/logout")
+				.logoutSuccessUrl(loginUrl)
+				.deleteCookies("JSESSIONID")
+//				.invalidateHttpSession(false)
+//			.and()
+			
+//			.authorizeRequests()
+//				.antMatchers(loginUrl).permitAll()
+//				.antMatchers(indexUrl).denyAll()
+//				.antMatchers("/admin/**").hasRole("ADMIN")
+//			.anyRequest()
+//				.authenticated()
+				;
 	}	
 	
 	@Override

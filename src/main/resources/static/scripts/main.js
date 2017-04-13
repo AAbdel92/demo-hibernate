@@ -7,25 +7,25 @@ $(document).ready(function() {
 		deletePromo();
 	}),
 	
-	$('#creerPromo').click( function() {
+	$('#creerPromo').click(function() {
 		creerPromo();
 	}),
 
-	$('#saveUser').click( function() {					
+	$('#saveUser').click(function() {					
 		creerUtilisateur();
 		}),					
 					
-	$('#saveRole').click(	function() {				
+	$('#saveRole').click(function() {				
 		creerRole();
 		}),
 		
-	$('#deleteUser').click( function() {
+	$('#deleteUser').click(function() {
 		deleteUtilisateur();
 	}),
-	$('#ajoutRole').click( function() {
+	$('#ajoutRole').click(function() {
 		ajouterRole();
 	}),
-	$('#chercherRole').click( function() {
+	$('#chercherRole').click(function() {
 		chercherUtilisateur();
 	})
 });
@@ -48,7 +48,7 @@ function creerUtilisateur() {
 		type : "POST",
 		contentType : "application/json",
 		url : "api/utilisateur/creerUtilisateur",
-		data : Utilisateur,
+		data : JSON.stringify(Utilisateur),
 		dataType : 'json',
 		success : function(data) {
 			var date = new Date(data["derniereMaj"]);
