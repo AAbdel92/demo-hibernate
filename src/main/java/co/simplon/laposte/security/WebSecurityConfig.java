@@ -17,6 +17,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	private RESTAuthenticationSuccessHandler authSuccessHandler;
 	@Autowired
 	private RESTAuthenticationFailureHandler authFailHandler;
+	@Autowired
+	private RESTLogoutSuccessHandler logoutSuccessHandler;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {		
@@ -24,8 +26,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		http.csrf().disable();
 		http.exceptionHandling().authenticationEntryPoint(authEntryPoint);
 		http.formLogin().successHandler(authSuccessHandler);
-        http.formLogin().failureHandler(authFailHandler);
-			
+        http.formLogin().failureHandler(authFailHandler);	
+        http.logout().logoutSuccessHandler(logoutSuccessHandler);
 	}	
 	
 	

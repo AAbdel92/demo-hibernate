@@ -1,58 +1,23 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<meta charset="UTF-8">
-	<title>Test Hibernate</title>
-	<link rel="stylesheet" href="styles/main.css" />	
-</head>
-
-<body>
-
-	<a href="/logout">Se déconnecter.</a>
-	<h3>Créer utilisateur</h3>
-	<form>
-		<input type="text" placeholder="pseudo" id="pseudo"> <input type="password" placeholder="mot de passe" id="pass">
-		<input type="text" placeholder="email" id="email">
-		<select id="idRole"></select>
-		<select id="idPromo"></select>
+	<head>
+		<meta charset="UTF-8">
+		<title>Essai restFul</title>
+		<link rel="stylesheet" href="styles/main.css" />
+	</head>
+	<body>
+	<form class="show" id="loginForm" name="loginForm">
+		<label for="username">Username: </label><input id="username" name="username"><br/>
+		<label for="password">Password:</label><input id="password" name="password"><br/>
+		<button type="submit">Login!</button>
 	</form>
-	<button id="saveUser">valider</button>
-	<h3>Créer Role</h3>
-	<form>
-		<input type="text" placeholder="nom" id="nomRole">
-	</form>
-	<button id="saveRole">valider</button>
-	<h3>Supprimer Utilisateur</h3>
-	<form>
-		<input type="text" placeholder="pseudo à supprimer" id="deletePseudo">
-	</form>
-	<button id="deleteUser">valider</button>
-	<h3>Ajouter Role a Utilisateur</h3>
-	<form>
-		<input type="text" placeholder="pseudo de l'utilisateur" id="pseudoAjoutRole">
-		<select id="idRoleAjout"></select>
-	</form>
-	<button id="ajoutRole">valider</button>
-	<h3>Chercher Utilisateur par Role</h3>
-	<form>
-		<select id="idRoleSearch"></select>
-	</form>
-	<button id="chercherRole">valider</button>
-	<h3>Creer Promo</h3>
-	<form>
-		<input type="text" placeholder="nom" id="nomPromo">
-	</form>
-	<button id="creerPromo">valider</button>
-	<h3>Supprimer Promo</h3>
-	<form>
-		<input type="text" placeholder="nom" id="nomPromoDelete">
-	</form>
-	<button id="deletePromo">valider</button>
-	<div id="reponse"></div>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	 crossorigin="anonymous"></script>
-	<script type="text/javascript" src="scripts/main.js"></script>
-</body>
-
+	<button class="hidden" id="logout">Se déconnecter</button>
+	<p>Liste des utilisateurs : </p>
+	<p id="reponse"></p>
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" 
+	crossorigin="anonymous"></script>
+	<script src="/scripts/jquery.cookie.js"></script>	
+	<script type="text/javascript" src="/scripts/index.js"></script>		
+	</body>
 </html>
