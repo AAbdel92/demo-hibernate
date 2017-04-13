@@ -3,6 +3,7 @@ package co.simplon.laposte.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.simplon.laposte.model.Promo;
 import co.simplon.laposte.service.PromoService;
 
+@CrossOrigin
 @RestController
 @RequestMapping(value = "api/promo")
 public class PromoController {

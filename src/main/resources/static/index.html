@@ -4,10 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Test Hibernate</title>
-	<link rel="stylesheet" href="styles/main.css" />
-	<!-- <link rel="stylesheet" type="text/css" href="webjars/materialize/0.98.0/dist/css/materialize.min.css" /> -->
-	<!-- <link rel="stylesheet" type="text/css"
-	href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css" /> -->
+	<link rel="stylesheet" href="styles/main.css" />	
 </head>
 
 <body>
@@ -16,10 +13,9 @@
 	<h3>Créer utilisateur</h3>
 	<form>
 		<input type="text" placeholder="pseudo" id="pseudo"> <input type="password" placeholder="mot de passe" id="pass">
-		<input
-		 type="text" placeholder="email" id="email">
-			<select id="idRole"></select>
-			<select id="idPromo"></select>
+		<input type="text" placeholder="email" id="email">
+		<select id="idRole"></select>
+		<select id="idPromo"></select>
 	</form>
 	<button id="saveUser">valider</button>
 	<h3>Créer Role</h3>
@@ -54,12 +50,8 @@
 	</form>
 	<button id="deletePromo">valider</button>
 	<div id="reponse"></div>
-	
-	<script type="text/javascript" src="webjars/jquery/3.2.1/dist/jquery.min.js"></script>
-	<!-- <script type="text/javascript" src="webjars/materialize/0.98.0/dist/js/materialize.min.js"></script> -->
-	<!-- <script type="text/javascript" src="webjars/jquery/3.2.1/jquery.min.js"></script> -->
-	<!-- <script type="text/javascript"
-		src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	 crossorigin="anonymous"></script>
 	<script type="text/javascript" src="scripts/main.js"></script>
 </body>
 

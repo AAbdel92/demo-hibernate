@@ -1,10 +1,13 @@
 package co.simplon.laposte.controller;
 
 import java.util.List;
+
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.simplon.laposte.model.Utilisateur;
 import co.simplon.laposte.service.UtilisateurService;
 
+@CrossOrigin
 @RestController
 @RequestMapping(value="api/utilisateur")
 public class UtilisateurController {

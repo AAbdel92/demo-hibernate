@@ -47,7 +47,7 @@ function creerUtilisateur() {
 	$.ajax({
 		type : "POST",
 		contentType : "application/json",
-		url : "http://localhost:8080/api/utilisateur/creerUtilisateur",
+		url : "api/utilisateur/creerUtilisateur",
 		data : JSON.stringify(Utilisateur),
 		dataType : 'json',
 		success : function(data) {
@@ -77,7 +77,7 @@ function creerRole() {
 	$.ajax({
 		type : "POST",
 		contentType : "application/json",
-		url : "http://localhost:8080/api/role/creerRole",
+		url : "/api/role/creerRole",
 		data : Role,
 		dataType : 'json',
 		success : function(data) {
@@ -101,7 +101,7 @@ function creerRole() {
 }
 function listerRoles() {
 	
-	$.getJSON("http://localhost:8080/api/role/listeRole", function(data) {	
+	$.getJSON("api/role/listeRole", function(data) {	
 		var resultat;	
 		$.each(data, function(cle, valeur) {
 			var option = "<option value=\"" + cle + "\">" + valeur;
@@ -121,7 +121,7 @@ function deleteUtilisateur() {
 	$.ajax({
 		type : "DELETE",
 		contentType : "application/json",
-		url : "http://localhost:8080/api/utilisateur/supprimerUtilisateur",
+		url : "/api/utilisateur/supprimerUtilisateur",
 		data : Utilisateur,
 		dataType : 'json',
 		success : function(data) {			
@@ -154,7 +154,7 @@ function ajouterRole() {
 	$.ajax({
 		type : "POST",
 		contentType : "application/json",
-		url : "http://localhost:8080/api/utilisateur/ajoutRole",
+		url : "/api/utilisateur/ajoutRole",
 		data : Utilisateur,
 		dataType : 'json',
 		success : function(data) {			
@@ -182,7 +182,7 @@ function chercherUtilisateur() {
 	$.ajax({
 		type : "GET",
 		contentType : "application/json",
-		url : "http://localhost:8080/api/utilisateur/chercherUtilisateur/" + roleId,		
+		url : "/api/utilisateur/chercherUtilisateur/" + roleId,		
 		dataType : 'json',
 		success : function(data) {			
 			var json = "<h4>Ajax Response</h4><pre>"
@@ -204,7 +204,7 @@ function chercherUtilisateur() {
 
 function listerPromos() {	
 	
-	$.getJSON("http://localhost:8080/api/promo/listePromos", function(data) {	
+	$.getJSON("api/promo/listePromos", function(data) {	
 		var resultat;	
 		$.each(data, function(cle, valeur) {
 			var option = "<option value=\"" + cle + "\">" + valeur;
@@ -222,7 +222,7 @@ function creerPromo() {
 	$.ajax({
 		type : "POST",
 		contentType : "application/json",
-		url : "http://localhost:8080/api/promo/creerPromo/",
+		url : "/api/promo/creerPromo/",
 		data : Promo,
 		dataType : 'json',
 		success : function(data) {			
@@ -250,7 +250,7 @@ function deletePromo() {
 	$.ajax({
 		type : "DELETE",
 		contentType : "application/json",
-		url : "http://localhost:8080/api/promo/supprimerPromo/",
+		url : "/api/promo/supprimerPromo/",
 		data : Promo,
 		dataType : 'json',
 		success : function(data) {			
