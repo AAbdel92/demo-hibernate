@@ -28,6 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		http.formLogin().successHandler(authSuccessHandler);
         http.formLogin().failureHandler(authFailHandler);	
         http.logout().logoutSuccessHandler(logoutSuccessHandler);
+        
 	}	
 	
 	

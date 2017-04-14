@@ -1,5 +1,7 @@
 $(document).ready(function($) {
-	
+
+	console.log(monCookie),
+		
 	 $('#loginForm').submit(function (event) {
 	        event.preventDefault();
 	        var data = 'username=' + $('#username').val() + '&password=' + $('#password').val();
@@ -12,8 +14,8 @@ $(document).ready(function($) {
 	        }).done(function(data, textStatus, jqXHR) { 
 	        	
 //	        	window.location = "/index.html";
-	        	$('#loginForm').toggleClass('hidden');
-	        	$('#logout').toggleClass('show');
+	        	$('#divForm').toggleClass('show hidden');
+	        	$('#logout').toggleClass('hidden show');
 	        	afficherListe();
 	 
 	        }).fail(function(jqXHR, textStatus, errorThrown) {
@@ -29,8 +31,8 @@ $(document).ready(function($) {
 			url: '/logout'
 		}).done(function () {
 //			window.location = '/login.html';
-			$('#loginForm').toggleClass('show');
-			$('#logout').toggleClass('hidden');
+			$('#divForm').toggleClass('hidden show');
+			$('#logout').toggleClass('show hidden');
 		}).fail(function () {
 			window.location = 'index.html';
 		});
@@ -56,3 +58,5 @@ function afficherListe() {
         }
     });
 }
+
+var monCookie = document.cookie('JSESSIONID');	

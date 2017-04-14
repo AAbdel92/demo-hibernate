@@ -8,10 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
+import org.springframework.stereotype.Component;
 
-public interface RESTLogoutSuccessHandler extends LogoutSuccessHandler {
+@Component
+public class RESTLogoutSuccessHandler implements LogoutSuccessHandler {
+	
 	@Override
-	default void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response,
+	public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
 		response.setStatus(HttpServletResponse.SC_OK);
 	}

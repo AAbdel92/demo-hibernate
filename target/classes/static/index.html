@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Essai restFul</title>
-		<link rel="stylesheet" href="styles/main.css" />
-	</head>
-	<body>
-	<form class="show" id="loginForm" name="loginForm">
-		<label for="username">Username: </label><input id="username" name="username"><br/>
-		<label for="password">Password:</label><input id="password" name="password"><br/>
-		<button type="submit">Login!</button>
-	</form>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Essai restFul</title>
+	<link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+	<div id="divForm" class="show">
+		<form id="loginForm" name="loginForm">
+			<label for="username">Username: </label><input id="username" name="username"><br/>
+			<label for="password">Password:</label><input id="password" name="password"><br/>
+			<button type="submit">Login!</button>
+		</form>
+	</div>
 	<button class="hidden" id="logout">Se déconnecter</button>
 	<p>Liste des utilisateurs : </p>
 	<p id="reponse"></p>
-	
-	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" 
-	crossorigin="anonymous"></script>
-	<script src="/scripts/jquery.cookie.js"></script>	
-	<script type="text/javascript" src="/scripts/index.js"></script>		
-	</body>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<script src="/scripts/jquery.cookie.js"></script>
+	<script type="text/javascript" src="/scripts/index.js"></script>
+</body>
+
 </html>
