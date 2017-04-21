@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.simplon.laposte.model.Utilisateur;
 import co.simplon.laposte.service.UtilisateurService;
 
-@CrossOrigin
+@CrossOrigin(origins="http://localhost:3000")
 @RestController
 @RequestMapping(value="api/utilisateur")
 public class UtilisateurController {
