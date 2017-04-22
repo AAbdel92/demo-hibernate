@@ -15,6 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -29,12 +30,15 @@ public class Utilisateur {
 	
 	@Id	
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;	
+	private long id;
 	
+	@NotEmpty(message = "Le champ 'pseudo' ne peut pas être vide")
 	private String pseudo;
 	
+	@NotEmpty(message = "Le champ 'mot de passe' ne peut pas être vide")
 	private String motDePasse;
 	
+	@NotEmpty(message = "Le champ 'email' ne peut pas être vide")
 	private String email;
 	
 	@UpdateTimestamp

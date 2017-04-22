@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.simplon.laposte.model.Role;
 import co.simplon.laposte.service.RoleService;
 
-@CrossOrigin
+@CrossOrigin(origins="http://localhost:3000")
 @RestController
 @RequestMapping(value="/api/role")
 public class RoleController {

@@ -2,8 +2,7 @@ package co.simplon.laposte.controller;
 
 import java.util.List;
 
-
-import java.util.Map;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,18 +27,9 @@ public class UtilisateurController {
 	private UtilisateurService service;	
 	
 	@GetMapping(value="listeUtilisateur")
-	public ResponseEntity<?> findAll() {
-		Map<Long, String> resultat;
-		resultat = service.findAll();
-		return ResponseEntity.ok(resultat);
-	}
-	
-	@GetMapping(value="test")
-	public ResponseEntity<?> findAllPseudo() {
-		List<String> resultat;
-		resultat = service.findAllPseudo();
-		return ResponseEntity.ok(resultat);
-	}
+	public List<Utilisateur> findAll() {				
+		return service.findAll();
+	}	
 	
 	@GetMapping(value="test1")
 	public ResponseEntity<?> findPseudo() {
@@ -58,7 +48,7 @@ public class UtilisateurController {
 	}
 	
 	@PostMapping(value="/creerUtilisateur")	
-	public ResponseEntity<?> save(@RequestBody Utilisateur utilisateur) {			
+	public ResponseEntity<?> save(@Valid @RequestBody Utilisateur utilisateur) {			
 		Utilisateur resultat;
 		resultat = service.save(utilisateur);
 		return ResponseEntity.ok(resultat);
@@ -71,18 +61,13 @@ public class UtilisateurController {
 	}
 	
 	@PostMapping(value="ajoutRole")
-	public ResponseEntity<?> ajouterRole(@RequestBody Utilisateur utilisateur) {
-		Utilisateur resultat;
-		resultat = service.ajouterRole(utilisateur);
-		return ResponseEntity.ok(resultat
-									.getRoles().get(resultat.getRoles().size()-1).getNom()
-									+ "ajouté à " + resultat.getPseudo());
+	public Utilisateur ajouterRole(@RequestBody Utilisateur utilisateur) {		
+		return service.ajouterRole(utilisateur);
 	}
 	
 	@GetMapping(value="chercherUtilisateur/{id}")
-	public ResponseEntity<?> getUtilisateur(@PathVariable long id) {		
-		Map<Long, String> resultat = service.selectByRole(id);
-		return ResponseEntity.ok(resultat);
+	public List<Utilisateur> getUtilisateur(@PathVariable long id) {		
+		return service.selectByRole(id);
 	}
 }
  

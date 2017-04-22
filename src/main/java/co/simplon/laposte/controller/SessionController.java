@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.simplon.laposte.model.Session;
 import co.simplon.laposte.service.SessionService;
 
-@CrossOrigin
+@CrossOrigin(origins="http://localhost:3000")
 @RestController
 @RequestMapping(value = "api/sessions")
 public class SessionController {

@@ -19,7 +19,7 @@ import co.simplon.laposte.dao.UtilisateurDAO;
 import co.simplon.laposte.model.Role;
 import co.simplon.laposte.model.Utilisateur;
 
-@Configuration
+//@Configuration
 public class GlobalWebSecurityConfig extends GlobalAuthenticationConfigurerAdapter {
 	
 	@Autowired
