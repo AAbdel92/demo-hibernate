@@ -37,6 +37,10 @@ public class UtilisateurService {
 		return resultat;
 	}	
 	
+	public Utilisateur getUser(String pseudo) {
+		return dao.findByPseudo(pseudo);
+	}
+	
 	public List<String> findPseudo() {		
 		return dao.findPseudo();
 	}
@@ -70,4 +74,8 @@ public class UtilisateurService {
 		}
 		return resultat;
 	}	
+	
+	public Utilisateur login(String pseudo, String motDePasse) {
+		return dao.findByPseudoAndMotDePasse(pseudo, motDePasse);
+	}
 }

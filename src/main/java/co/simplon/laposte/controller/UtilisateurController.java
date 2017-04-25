@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.laposte.model.Utilisateur;
@@ -36,6 +37,11 @@ public class UtilisateurController {
 		List<String> resultat;
 		resultat = service.findPseudo();
 		return ResponseEntity.ok(resultat);
+	}
+	
+	@GetMapping(value="getUser")
+	public Utilisateur getUser(@RequestParam String pseudo) {
+		return service.getUser(pseudo);
 	}
 	
 	@GetMapping(value="listeUtilisateur/{id}")
@@ -68,6 +74,18 @@ public class UtilisateurController {
 	@GetMapping(value="chercherUtilisateur/{id}")
 	public List<Utilisateur> getUtilisateur(@PathVariable long id) {		
 		return service.selectByRole(id);
+	}
+	
+	@PostMapping(value="login")
+	public String login(@RequestParam(value="username") String pseudo, @RequestParam(value="password") String motDePasse) {
+		Utilisateur temp = service.login(pseudo, motDePasse);
+		String reponse;
+		if (temp!=null) {
+			reponse = "login réussi !";			
+		} else {
+			reponse = "login raté !";
+		}
+		return reponse;
 	}
 }
  
