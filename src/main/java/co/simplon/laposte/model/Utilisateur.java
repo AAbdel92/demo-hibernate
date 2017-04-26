@@ -28,6 +28,8 @@ import lombok.Setter;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "pseudo")
 public class Utilisateur {
 	
+	
+	
 	@Id	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
