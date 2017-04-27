@@ -19,7 +19,7 @@ import co.simplon.laposte.dao.UtilisateurDAO;
 import co.simplon.laposte.model.Role;
 import co.simplon.laposte.model.Utilisateur;
 
-//@Configuration
+@Configuration
 public class GlobalWebSecurityConfig extends GlobalAuthenticationConfigurerAdapter {
 	
 	@Autowired
@@ -39,7 +39,7 @@ public class GlobalWebSecurityConfig extends GlobalAuthenticationConfigurerAdapt
 			public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 				Utilisateur utilisateur = dao.findByPseudo(username);				
 				if (utilisateur != null) {
-					String[] listeRole = listerNomRole(utilisateur.getRoles());
+					//String[] listeRole = listerNomRole(utilisateur.getRoles());
 
 					return new User(utilisateur.getPseudo(),
 									utilisateur.getMotDePasse(),

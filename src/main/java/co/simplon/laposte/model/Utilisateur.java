@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -26,6 +27,7 @@ import lombok.Setter;
 @Getter @Setter
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "pseudo")
+
 public class Utilisateur {
 	
 	
